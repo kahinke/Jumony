@@ -68,13 +68,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DefaultCachePolicyProvider.cs" />
+    <Compile Include="HtmlBindingContext.cs" />
     <Compile Include="HtmlElementHandler.cs" />
     <Compile Include="HtmlBuildProvider.cs" />
+    <Compile Include="HtmlElementHandlerProvider.cs" />
     <Compile Include="HtmlHandlerBase.cs" />
     <Compile Include="HttpHandlerBase.cs" />
     <Compile Include="HtmlHandlerWrapper.cs" />
     <Compile Include="IHandlerWrapper.cs" />
     <Compile Include="IHtmlDocumentProvider.cs" />
+    <Compile Include="IHtmlElementBinder.cs" />
     <Compile Include="JumonyHandler.cs" />
     <Compile Include="HtmlProviders.cs" />
     <Compile Include="IHtmlHandler.cs" />
