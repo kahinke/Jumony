@@ -109,9 +109,9 @@ namespace Ivony.Html.Web
     }
 
 
-    protected HtmlElementHandler[] FindElementHandlers()
+    protected IHtmlElementBinder[] FindElementHandlers()
     {
-      return HtmlElementHandler.GetElementHandlers( this );
+      return HtmlElementHandlerProvider.GetElementHandlers( this );
     }
 
     protected virtual void ProcessElements()
@@ -120,17 +120,17 @@ namespace Ivony.Html.Web
     }
 
 
-    protected virtual void ProcessElements( HtmlElementHandler[] handlers )
+    protected virtual void ProcessElements( IHtmlElementBinder[] handlers )
     {
       ProcessElements( Scope, handlers );
     }
 
 
-    protected void ProcessElements( IHtmlContainer container, HtmlElementHandler[] handlers )
+    protected void ProcessElements( IHtmlContainer container, IHtmlElementBinder[] handlers )
     {
       foreach ( var element in container.Elements() )
       {
-        handlers.Where( h => h.Selector.IsEligible( element ) ).ForFirst( h => h.Process( element ) );
+        handlers.ForAll( h => h.ProcessElement( element ) );
         ProcessElements( element, handlers );
       }
     }
