@@ -72,6 +72,7 @@
     <Compile Include="HtmlElementBinder.cs" />
     <Compile Include="HtmlElementHandler.cs" />
     <Compile Include="HtmlBuildProvider.cs" />
+    <Compile Include="HtmlElementHandlerProvider.cs" />
     <Compile Include="HtmlHandlerBase.cs" />
     <Compile Include="HttpHandlerBase.cs" />
     <Compile Include="HtmlHandlerWrapper.cs" />
