@@ -116,7 +116,7 @@ namespace Ivony.Html.Web
 
       ProcessScope();
 
-      ProcessElements();
+      DataBind();
     }
 
 

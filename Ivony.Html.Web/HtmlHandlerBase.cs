@@ -109,30 +109,8 @@ namespace Ivony.Html.Web
     }
 
 
-    protected IHtmlElementBinder[] FindElementHandlers()
+    protected virtual void DataBind()
     {
-      return HtmlElementHandlerProvider.GetElementHandlers( this );
-    }
-
-    protected virtual void ProcessElements()
-    {
-      ProcessElements( FindElementHandlers() );
-    }
-
-
-    protected virtual void ProcessElements( IHtmlElementBinder[] handlers )
-    {
-      ProcessElements( Scope, handlers );
-    }
-
-
-    protected void ProcessElements( IHtmlContainer container, IHtmlElementBinder[] handlers )
-    {
-      foreach ( var element in container.Elements() )
-      {
-        handlers.ForAll( h => h.ProcessElement( element ) );
-        ProcessElements( element, handlers );
-      }
     }
 
 

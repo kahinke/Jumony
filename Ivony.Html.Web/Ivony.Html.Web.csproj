@@ -69,9 +69,9 @@
   <ItemGroup>
     <Compile Include="DefaultCachePolicyProvider.cs" />
     <Compile Include="HtmlBindingContext.cs" />
+    <Compile Include="HtmlElementBinder.cs" />
     <Compile Include="HtmlElementHandler.cs" />
     <Compile Include="HtmlBuildProvider.cs" />
-    <Compile Include="HtmlElementHandlerProvider.cs" />
     <Compile Include="HtmlHandlerBase.cs" />
     <Compile Include="HttpHandlerBase.cs" />
     <Compile Include="HtmlHandlerWrapper.cs" />
@@ -84,6 +84,7 @@
     <Compile Include="IHtmlContentProvider.cs" />
     <Compile Include="IHtmlParserProvider.cs" />
     <Compile Include="ResourceManager.cs" />
+    <Compile Include="SelectorBasedElementBinder.cs" />
     <Compile Include="WebParser.cs" />
     <Compile Include="RequestMapping.cs" />
     <Compile Include="HtmlRewriteModule.cs" />

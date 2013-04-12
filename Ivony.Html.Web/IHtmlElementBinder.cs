@@ -8,7 +8,7 @@ namespace Ivony.Html.Web
   public interface IHtmlElementBinder
   {
 
-    public object BindElement( HtmlBindingContext context );
+    object BindElement( HtmlBindingContext context );
 
   }
 }
