@@ -4,6 +4,14 @@
 <head>
 <title>选择器</title>
 <link href="../../Views/Help/main.css" rel="stylesheet" type="text/css" />
+<<<<<<< Updated upstream
+=======
+<style type="text/css">
+.auto-style1 {
+	background-color: #EEEEEE;
+}
+</style>
+>>>>>>> Stashed changes
 </head>
 
 <body>
@@ -13,7 +21,68 @@
 Level 3</a>，除了运行时伪类之外的其他选择器基本都完整支持。下面将介绍如何使用选择器来找到自己感兴趣的元素。</p>
 <section>
     <h2>简单选择器</h2>
+<<<<<<< Updated upstream
   <p>我们首先来看一个非常简单的需求，在页面上找出所有的链接，用 CSS 选择器可以很方便的做到这一点。</p>
+=======
+  <p>我们首先来看一个非常简单的需求，在页面上找出所有的链接。用 CSS 选择器可以很方便的做到这一点。</p>
+	<p>首先我们还是从互联网下载一个文档来做实验：</p>
+	<pre class="code"><span class="keyword">var</span>&nbsp;<span class="identifier">document</span>&nbsp;<span class="operator">=</span>&nbsp;<span class="keyword">new</span>&nbsp;<span class="User Types">JumonyParser</span>()<span class="operator">.</span><span class="identifier">LoadDocument</span>(&nbsp;<span class="string">"http://www.sina.com.cn/"</span>&nbsp;);</pre>
+	<p>然后利用选择器把所有的链接给取出来，并显示链接总数，因为所有的链接都是&lt;a&gt;元素，所以我们使用选择器"a"，取出所有的&lt;a&gt;元素：</p>
+	<pre class="code"><span class="keyword">var</span>&nbsp;<span class="identifier">links</span>&nbsp;<span class="operator">=</span>&nbsp;<span class="identifier">document</span><span class="operator">.</span><span class="identifier">Find</span>(&nbsp;<span class="string">"a"</span>&nbsp;);
+<span class="User Types">Console</span><span class="operator">.</span><span class="identifier">WriteLine</span>(&nbsp;<span class="identifier">links</span><span class="operator">.</span><span class="identifier">Count</span>()&nbsp;);</pre>
+	<p>运行结果如下：</p>
+	<pre class="console">1504</pre>
+	<p>我们也可以列印出所有的链接元素：</p>
+	<pre class="code"><span class="keyword">var</span>&nbsp;<span class="identifier">links</span>&nbsp;<span class="operator">=</span>&nbsp;<span class="identifier">document</span><span class="operator">.</span><span class="identifier">Find</span>(&nbsp;<span class="string">"a"</span>&nbsp;);
+<span class="keyword">foreach</span>&nbsp;(&nbsp;<span class="keyword">var</span>&nbsp;<span class="identifier">element</span>&nbsp;<span class="keyword">in</span>&nbsp;<span class="identifier">links</span>&nbsp;)
+<span class="auto-style1">  </span><span class="User Types">Console</span><span class="operator">.</span><span class="identifier">WriteLine</span>(&nbsp;<span class="identifier">element</span><span class="operator">.</span><span class="identifier">OuterHtml</span>()&nbsp;);
+</pre>
+	<p>运行结果如下（节选）：</p>
+	<pre class="console">...
+&lt;a target="_blank" href="http://m.sina.com.cn/m/weibo.shtml" suda-uatrack="key=
+ndex_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪微博&lt;/a&gt;
+&lt;a target="_blank" href="http://m.sina.com.cn/m/sinahome.shtml" suda-uatrack="k
+y=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪新闻&lt;/a&gt;
+&lt;a target="_blank" href="http://m.sina.com.cn/m/sinasports.shtml" suda-uatrack=
+key=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪体育&lt;/a&gt;
+&lt;a target="_blank" href="http://book.sina.com.cn/m/sinabook.shtml" suda-uatrack
+"key=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪阅读&lt;/a&gt;
+&lt;a target="_blank" href="http://m.sina.com.cn/m/weather.shtml" suda-uatrack="ke
+=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;天气通&lt;/a&gt;
+&lt;a href="javascript:;"&gt;&lt;i&gt;&lt;/i&gt;关闭置顶&lt;/a&gt;
+...</pre>
+	<p>
+	但是，并不是所有的&lt;a&gt;元素都是链接，因为&lt;a&gt;元素也可以用来作为锚点使用。锚点和链接的区别在于，链接必须有href属性，而锚点没有。所以我们改进一下选择器，只选择所有有href属性的&lt;a&gt;元素。我们只需要把代码稍微修改一下：</p>
+	<pre class="code"><span class="keyword">var</span>&nbsp;<span class="identifier">links</span>&nbsp;<span class="operator">=</span>&nbsp;<span class="identifier">document</span><span class="operator">.</span><span class="identifier">Find</span>(&nbsp;<span class="string">"a[href]"</span>&nbsp;);</pre>
+	<p>
+	[href]是属性选择器，用方括号括住一个名称，表示选择的元素必须具备这个名称的属性。所以"a[href]"就表示我们要选择的元素必须是一个&lt;a&gt;标签，并且这个标签还必须有href这个属性。</p>
+	<p>
+	不过，即使一个&lt;a&gt;链接具有href属性，但也不一定是一个链接，因为很多链接的href的值其实是"javascript:;"或是"javascript:void(0);"，这些链接只是显示成一个链接的样子，事实上点击的时候并不会跳转或者打开新的网址。而是引发其onclick事件来执行某些操作。</p>
+	<p>所以，我们再限定一下范围，href属性必须是以http:开头的如何，那么这个选择器可以这样写：</p>
+	<pre class="code"><span class="keyword">var</span>&nbsp;<span class="identifier">links</span>&nbsp;<span class="operator">=</span>&nbsp;<span class="identifier">document</span><span class="operator">.</span><span class="identifier">Find</span>(&nbsp;<span class="string">"a[href^='http:']"</span>&nbsp;);</pre>
+	
+	<p>仍然是刚才那段代码，其运行结果如下（节选）：</p>
+	<pre class="console">...
+&lt;a target="_blank" href="http://tech.sina.com.cn/z/sinawap/" class="tn-tab" suda
+-uatrack="key=index_new_menu&amp;amp;value=sina_wap"&gt;&lt;i&gt;手机新浪网&lt;/i&gt;
+&lt;/a&gt;
+&lt;a target="_blank" href="http://m.sina.com.cn/m/weibo.shtml" suda-uatrack="key=i
+ndex_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪微博&lt;/a&gt;
+&lt;a target="_blank" href="http://m.sina.com.cn/m/sinahome.shtml" suda-uatrack="ke
+y=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪新闻&lt;/a&gt;
+&lt;a target="_blank" href="http://m.sina.com.cn/m/sinasports.shtml" suda-uatrack="
+key=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪体育&lt;/a&gt;
+&lt;a target="_blank" href="http://book.sina.com.cn/m/sinabook.shtml" suda-uatrack=
+"key=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪阅读&lt;/a&gt;
+&lt;a target="_blank" href="http://m.sina.com.cn/m/weather.shtml" suda-uatrack="key
+=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;天气通&lt;/a&gt;
+...</pre>
+	<p>那些href="javascript:;"的链接已经不见了。</p>
+	<p>但</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	
+>>>>>>> Stashed changes
 </section>
 
 </body>
