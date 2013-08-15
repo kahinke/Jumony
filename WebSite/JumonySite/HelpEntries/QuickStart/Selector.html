@@ -4,14 +4,11 @@
 <head>
 <title>选择器</title>
 <link href="../../Views/Help/main.css" rel="stylesheet" type="text/css" />
-<<<<<<< Updated upstream
-=======
 <style type="text/css">
 .auto-style1 {
 	background-color: #EEEEEE;
 }
 </style>
->>>>>>> Stashed changes
 </head>
 
 <body>
@@ -21,9 +18,6 @@
 Level 3</a>，除了运行时伪类之外的其他选择器基本都完整支持。下面将介绍如何使用选择器来找到自己感兴趣的元素。</p>
 <section>
     <h2>简单选择器</h2>
-<<<<<<< Updated upstream
-  <p>我们首先来看一个非常简单的需求，在页面上找出所有的链接，用 CSS 选择器可以很方便的做到这一点。</p>
-=======
   <p>我们首先来看一个非常简单的需求，在页面上找出所有的链接。用 CSS 选择器可以很方便的做到这一点。</p>
 	<p>首先我们还是从互联网下载一个文档来做实验：</p>
 	<pre class="code"><span class="keyword">var</span>&nbsp;<span class="identifier">document</span>&nbsp;<span class="operator">=</span>&nbsp;<span class="keyword">new</span>&nbsp;<span class="User Types">JumonyParser</span>()<span class="operator">.</span><span class="identifier">LoadDocument</span>(&nbsp;<span class="string">"http://www.sina.com.cn/"</span>&nbsp;);</pre>
@@ -61,7 +55,7 @@ key=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪体育&lt;/a&gt;
 	<p>所以，我们再限定一下范围，href属性必须是以http:开头的如何，那么这个选择器可以这样写：</p>
 	<pre class="code"><span class="keyword">var</span>&nbsp;<span class="identifier">links</span>&nbsp;<span class="operator">=</span>&nbsp;<span class="identifier">document</span><span class="operator">.</span><span class="identifier">Find</span>(&nbsp;<span class="string">"a[href^='http:']"</span>&nbsp;);</pre>
 	
-	<p>仍然是刚才那段代码，其运行结果如下（节选）：</p>
+	<p>^=运算符表示属性值必须以http:开头，那么仍然是刚才那段代码，其运行结果如下（节选）：</p>
 	<pre class="console">...
 &lt;a target="_blank" href="http://tech.sina.com.cn/z/sinawap/" class="tn-tab" suda
 -uatrack="key=index_new_menu&amp;amp;value=sina_wap"&gt;&lt;i&gt;手机新浪网&lt;/i&gt;
@@ -77,12 +71,11 @@ key=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪体育&lt;/a&gt;
 &lt;a target="_blank" href="http://m.sina.com.cn/m/weather.shtml" suda-uatrack="key
 =index_new_menu&amp;amp;value=sina_apps_list_click"&gt;天气通&lt;/a&gt;
 ...</pre>
-	<p>那些href="javascript:;"的链接已经不见了。</p>
-	<p>但</p>
+	<p>可以发现那些href="javascript:;"的链接已经不见了。</p>
+	<p>除了^=之外，属性选择器还支持$=、*=以及~=各种方式进行模糊匹配。也支持=运算符进行精确匹配。</p>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
 	
->>>>>>> Stashed changes
 </section>
 
 </body>
