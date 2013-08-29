@@ -72,10 +72,52 @@ key=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪体育&lt;/a&gt;
 =index_new_menu&amp;amp;value=sina_apps_list_click"&gt;天气通&lt;/a&gt;
 ...</pre>
 	<p>可以发现那些href="javascript:;"的链接已经不见了。</p>
-	<p>除了^=之外，属性选择器还支持$=、*=以及~=各种方式进行模糊匹配。也支持=运算符进行精确匹配。</p>
-	<p>&nbsp;</p>
-	<p>&nbsp;</p>
+	<p>除了^=之外，属性选择器还支持$=、*=以及~=各种方式进行模糊匹配。当然，也支持=运算符进行精确匹配。</p>
 	
+</section>
+<section>
+    <h2>组合子</h2>
+    <p>
+    组合子用于将两个简单选择器连接在一起，最常见的组合子是空白字符，在两个选择器中插入空白字符，表示在满足前面的选择器中的子代元素中查找满足后面的选择器的元素。比如说，我们要选择所有在&lt;div&gt;元素里面的链接，可以这样写：</p>
+    <pre class="code"><span class="keyword">var</span>&nbsp;<span class="identifier">elements</span>&nbsp;<span class="operator">=</span>&nbsp;<span class="identifier">document</span><span class="operator">.</span><span class="identifier">Find</span>(&nbsp;<span class="string">&quot;div&nbsp;a&quot;</span>&nbsp;);
+</pre>
+    <p>
+      CSS3选择器支持的组合子一共四个：分别是子代、子级、后继、兄弟，即空白、大于号（&gt;）、加号（+）和波浪号（~）。灵活运用将发挥非常大的威力，譬如说我要查找新浪首页中，头部导航中的所有链接就可以用子代组合子来组合我的选择器。新浪首页的头部导航如下：<br />
+      <img src="../../Views/images/sina_1.gif" /><br />
+      <em>注：因为新浪页面太大，我只截取了头部导航的一部分。</em></p>
+    <p>通过分析HTML可以轻易发现，整个头部导航都是包含在这样一个元素里面的：<br />
+    <img src="../../Views/images/sina_2.gif" /></p>
+    <p>所以选择所有头部导航的元素的选择器就可以这样写：</p>
+    <pre class="code"><span class="keyword">var</span>&nbsp;<span class="identifier">elements</span>&nbsp;<span class="operator">=</span>&nbsp;<span class="identifier">document</span><span class="operator">.</span><span class="identifier">Find</span>(&nbsp;<span class="string">".main-nav&nbsp;a"</span>&nbsp;);
+</pre>
+    <p>运行结果如下（节选）：
+    </p>
+    <pre class="console">&lt;a href="http://news.sina.com.cn/"&gt;&lt;b&gt;新闻&lt;/b&gt;&lt;/a&gt;
+&lt;a href="http://mil.news.sina.com.cn"&gt;军事&lt;/a&gt;
+&lt;a href="http://news.sina.com.cn/society/"&gt;社会&lt;/a&gt;
+&lt;a href="http://finance.sina.com.cn/"&gt;&lt;b&gt;财经&lt;/b&gt;&lt;/a&gt;
+&lt;a href="http://finance.sina.com.cn/stock/"&gt;股票&lt;/a&gt;
+&lt;a href="http://finance.sina.com.cn/fund/"&gt;基金&lt;/a&gt;
+&lt;a href="http://tech.sina.com.cn/"&gt;&lt;b&gt;科技&lt;/b&gt;&lt;/a&gt;
+&lt;a href="http://mobile.sina.com.cn/"&gt;手机&lt;/a&gt;
+&lt;a href="http://tech.sina.com.cn/discovery/"&gt;探索&lt;/a&gt;
+&lt;a href="http://sports.sina.com.cn/"&gt;&lt;b&gt;体育&lt;/b&gt;&lt;/a&gt;
+&lt;a href="http://sports.sina.com.cn/g/premierleague/"&gt;英超&lt;/a&gt;
+&lt;a href="http://sports.sina.com.cn/nba/"&gt;NBA&lt;/a&gt;
+&lt;a href="http://ent.sina.com.cn/"&gt;&lt;b&gt;娱乐&lt;/b&gt;&lt;/a&gt;
+&lt;a href="http://ent.sina.com.cn/star/"&gt;明星&lt;/a&gt;
+&lt;a href="http://astro.sina.com.cn/"&gt;星座&lt;/a&gt;
+&lt;a href="http://auto.sina.com.cn/"&gt;&lt;b&gt;汽车&lt;/b&gt;&lt;/a&gt;
+&lt;a href="http://dealer.auto.sina.com.cn/price/"&gt;报价&lt;/a&gt;
+&lt;a href="http://data.auto.sina.com.cn/"&gt;买车&lt;/a&gt;
+&lt;a href="http://blog.sina.com.cn/"&gt;&lt;b&gt;博客&lt;/b&gt;&lt;/a&gt;
+&lt;a href="http://zhuanlan.sina.com.cn/" style="color:red"&gt;专栏&lt;/a&gt;
+&lt;a href="http://weather.news.sina.com.cn/"&gt;天气&lt;/a&gt;</pre>
+
+      <p>这样，我们就大体上抓取了新浪所有的主栏目。</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
 </section>
 
 </body>
