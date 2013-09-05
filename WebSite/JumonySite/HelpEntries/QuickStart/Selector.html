@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
 
 <head>
 <title>选择器</title>
@@ -115,8 +115,20 @@ key=index_new_menu&amp;amp;value=sina_apps_list_click"&gt;新浪体育&lt;/a&gt;
 &lt;a href="http://weather.news.sina.com.cn/"&gt;天气&lt;/a&gt;</pre>
 
       <p>这样，我们就大体上抓取了新浪所有的主栏目。</p>
-	<p>&nbsp;</p>
-	<p>&nbsp;</p>
+
+</section>
+<section>
+<h2>结构性伪类</h2>
+  <p>有很多人在群里问我，CSS选择器要选择第n列的单元格怎么办？要选择第n个子元素怎么办？这些与位置信息有关的选择逻辑，都可以使用CSS3 
+  结构伪类（structural pseudo-class）来解决。</p>
+  <p>
+  最简单的结构性伪类是nth-child，指定选择的元素在同级元素中出现的位置顺序。还是以新浪的首页为例，如果我们需要获取如下图所示的，顶部导航中我的菜单里面的第n个链接，传统的类和ID甚至属性选择器都不能很好的定位，这时候就可以运用结构性伪类来解决问题：<br>
+  <img src="../../Views/images/sina3.jpg"></p>
+  <p>为了选择这个菜单中的第三项，首先我们需要创造一个选择器来选择到这个菜单列表。但通过对 DOM 
+  模型的分析我们可以发现这个我的菜单部分并没有ID或者class方面的特征：<br>
+  <img src="../../Views/images/sina4.jpg"></p>
+  <p>.tn-nav &gt; .tn-title</p>
+  <p>&nbsp;</p>
 
 </section>
 
