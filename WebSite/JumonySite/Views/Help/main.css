@@ -41,6 +41,15 @@ pre.code [class="User Types"]{ color: #2996B5 }
 
 pre.console{ color:white; background-color:black; font-family: Consolas, "Courier New", Courier, monospace ; font-size:14px; padding: 5px; }
 
+#feedback label { margin: 0px 20px 0px 0px; }
+#feedback p { margin: 10px; }
+#feedback textarea { width: 600px; height: 150px; }
+
+
+
+
+
+
 
 
 

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeedbackController.cs" />
     <Compile Include="HelpController.cs" />
     <Compile Include="HelpLink.cs" />
     <Compile Include="HelpTopic.cs" />

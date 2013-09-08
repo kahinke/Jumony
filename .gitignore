@@ -110,3 +110,4 @@ Content
 StaticCaches
 *.mdf
 *.ldf
+Thumbs.db
