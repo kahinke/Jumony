@@ -7,9 +7,24 @@
   <script src="../../Scripts/jquery-1.9.1.min.js"></script>
   </head>
 <body>
-  <form method="post" id="feedback" action="AddFeedback" controller="Feedback">
+  <section class="feedback">
+  <script>
+    function checkform(form)
+    {
+      contact = $(form).find("[name=contact]");
+      if (contact.val() == "")
+      {
+        window.alert("请赐尊名");
+        contact.focus();
+        return false;
+      }
+      else
+        return true;
+    }
+  </script>
+  <form method="post" action="AddFeedback" controller="Feedback" onsubmit="return checkform(this)">
     <input type="hidden" name="path" value="{Binding key=path}" />
-    <h3>请帮助我改进文章质量</h3> 
+    <h2>请帮助我改进文章质量</h2> 
     <h5>请赐尊名</h5>
     <p style="font-family: Verdana;">
       Email or QQ: <input type="text" name="contact" />
@@ -31,5 +46,6 @@
     <p><textarea name="content"></textarea></p>
     <input type="submit" value="提交" />
   </form>
+  </section>
 </body>
 </html>
