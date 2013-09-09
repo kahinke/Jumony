@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title></title>
+</head>
+<body>
+  <view datacontext="{Binding path=ChildTopics}">
+    <section class="child-topic" >
+      <h3><view path="Title">标题</view></h3>
+      <p class="summary"><view path="Summary">摘要</view>
+        <a action="Entry" class="detail-link" _path="{Binding path=VirtualPath}">查看详细</a>
+      </p>
+    </section>
+  </view>
+</body>
+</html>

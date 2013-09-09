@@ -6,6 +6,7 @@ using System.Web;
 using Ivony.Fluent;
 using Ivony;
 using Ivony.Html;
+using Ivony.Html.ExpandedAPI;
 using Ivony.Html.Web;
 using System.Web.Hosting;
 using System.Web.Caching;
@@ -41,70 +42,10 @@ namespace Jumony.Demo.HelpCenter
     }
 
 
-    private const string helpEntriesVirtualPath = "~/HelpEntries/";
+    protected const string helpEntriesVirtualPath = "~/HelpEntries/";
 
-    private static VirtualPathProvider VirtualPathProvider { get { return HostingEnvironment.VirtualPathProvider; } }
+    protected static VirtualPathProvider VirtualPathProvider { get { return HostingEnvironment.VirtualPathProvider; } }
 
-
-
-    private string _virtualPath;
-
-    private HelpTopic( string virtualPath )
-    {
-      _virtualPath = virtualPath;
-    }
-
-
-    private class HelpCategory : HelpTopic
-    {
-      public HelpCategory( string virtualPath )
-        : base( virtualPath )
-      {
-        if ( virtualPath == null )
-          throw new ArgumentNullException( "virtualPath" );
-
-        if ( !VirtualPathProvider.DirectoryExists( virtualPath ) )
-          throw new ArgumentException( "虚拟路径不是一个目录", "virtualPath" );
-      }
-
-
-      public override bool IsDirectory { get { return true; } }
-
-      public override HelpTopic[] Childs
-      {
-        get
-        {
-          var directory = VirtualPathProvider.GetDirectory( VirtualPath );
-          return directory.Children.OfType<VirtualFile>()
-            .Select( f => VirtualPathUtility.ToAppRelative( f.VirtualPath ) )
-            .Where( p => VirtualPathUtility.GetExtension( p ) == ".html" )
-            .Where( p => VirtualPathUtility.GetFileName( p ) != "index.html" )
-            .Union( directory.Children.OfType<VirtualDirectory>().Select( d => VirtualPathUtility.ToAppRelative( d.VirtualPath ) ).Where( d => VirtualPathProvider.FileExists( VirtualPathUtility.Combine( d, "index.html" ) ) ) )
-            .Select( p => GetTopic( VirtualPathUtility.MakeRelative( helpEntriesVirtualPath, p ) ) ).ToArray();
-        }
-      }
-
-    }
-
-
-
-    private class HelpEntry : HelpTopic
-    {
-      public HelpEntry( string virtualPath )
-        : base( virtualPath )
-      {
-        if ( virtualPath == null )
-          throw new ArgumentNullException( "virtualPath" );
-
-        if ( !VirtualPathProvider.FileExists( virtualPath ) )
-          throw new ArgumentException( "虚拟路径不是一个文件", "virtualPath" );
-      }
-
-      public override bool IsDirectory { get { return false; } }
-
-      public override HelpTopic[] Childs { get { return new HelpTopic[0]; } }
-
-    }
 
 
     private static HelpTopic CreateTopic( string virtualPath )
@@ -131,26 +72,25 @@ namespace Jumony.Demo.HelpCenter
 
 
 
-    public string VirtualPath
-    {
-      get { return IsDirectory ? VirtualPathUtility.AppendTrailingSlash( _virtualPath ) : VirtualPathUtility.RemoveTrailingSlash( _virtualPath ); }
-    }
+    public abstract string VirtualPath { get; }
 
-    public string DocumentPath
-    {
-      get { return IsDirectory ? VirtualPathUtility.Combine( VirtualPath, "index.html" ) : VirtualPath; }
-    }
+    public abstract string DocumentPath { get; }
 
-    public string HelpPath
-    {
-      get { return VirtualPathUtility.MakeRelative( helpEntriesVirtualPath, VirtualPath ); }
-    }
-
-    public abstract HelpTopic[] Childs { get; }
+    public abstract HelpTopic[] ChildTopics { get; }
 
     public IHtmlDocument Document
     {
       get { return HtmlProviders.LoadDocument( DocumentPath ); }
+    }
+
+    public string Title
+    {
+      get{ return Document.FindFirst( "head" ).FindFirst( "title" ).InnerHtml(); }
+    }
+
+    public string Summary
+    {
+      get { return Document.FindFirstOrDefault( "body > p" ).IfNull( "", element => element.InnerText() ); }
     }
 
 
@@ -158,9 +98,6 @@ namespace Jumony.Demo.HelpCenter
     {
       get
       {
-
-
-
         if ( VirtualPath.EqualsIgnoreCase( helpEntriesVirtualPath ) )
           return null;
 
@@ -172,12 +109,5 @@ namespace Jumony.Demo.HelpCenter
       }
     }
 
-
-    public abstract bool IsDirectory { get; }
-
-    public string Title
-    {
-      get { return Document.FindFirst( "head" ).FindFirst( "title" ).InnerHtml(); }
-    }
   }
 }

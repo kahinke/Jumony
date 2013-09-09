@@ -61,11 +61,12 @@
   </script>
   <nav>
     <div id="NavTop"></div>
-    <partial action="Navigation" inherits="virtualPath"></partial>
+    <partial view="navigation"></partial>
     <div id="NavBottom"></div>
   </nav>
   <section>
     <content></content>
+    <partial view="childs"></partial>
     <partial view="feedback"></partial>
   </section>
   <footer>

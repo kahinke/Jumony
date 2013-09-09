@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FeedbackController.cs" />
+    <Compile Include="HelpCategory.cs" />
     <Compile Include="HelpController.cs" />
+    <Compile Include="HelpEntry.cs" />
     <Compile Include="HelpLink.cs" />
     <Compile Include="HelpTopic.cs" />
     <Compile Include="Initializer.cs" />

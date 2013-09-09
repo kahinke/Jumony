@@ -26,8 +26,7 @@ namespace Jumony.Demo.HelpCenter
     {
 
       var topic = HelpTopic.GetTopic( path );
-      ViewData["path"] = path;
-      return View( topic.DocumentPath, "frame" );
+      return View( topic.DocumentPath, "frame", topic );
     }
 
 

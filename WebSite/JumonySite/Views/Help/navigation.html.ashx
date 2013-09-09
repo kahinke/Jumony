@@ -26,7 +26,7 @@ public class Navigation : ViewHandler<HelpTopic>
         if ( parent == null )
           break;
 
-        parentsList.AddElement( 0, "li" ).AddElement( "a" ).SetAttribute( "action", "Entry" ).SetAttribute( "_path", parent.HelpPath ).InnerText( parent.Title );
+        parentsList.AddElement( 0, "li" ).AddElement( "a" ).SetAttribute( "action", "Entry" ).SetAttribute( "_path", parent.VirtualPath ).InnerText( parent.Title );
         topic = parent;
       }
     }
@@ -36,9 +36,9 @@ public class Navigation : ViewHandler<HelpTopic>
     var selfNode = siblingList.AddElement( "li" );
     selfNode.InnerText( Model.Title );
     var childsList = selfNode.AddElement( "ul" );
-    foreach ( var child in Model.Childs )
+    foreach ( var child in Model.ChildTopics )
     {
-      childsList.AddElement( "li" ).AddElement( "a" ).SetAttribute( "action", "Entry" ).SetAttribute( "_path", child.HelpPath ).InnerText( child.Title );
+      childsList.AddElement( "li" ).AddElement( "a" ).SetAttribute( "action", "Entry" ).SetAttribute( "_path", child.VirtualPath ).InnerText( child.Title );
     }
 
 
