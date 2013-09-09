@@ -20,7 +20,8 @@ namespace Jumony.Demo.HelpCenter
 
       RouteTable.Routes.SimpleRouteTable()
         .MapRoute( "~/help", new { controller = "Help", action = "Entry" } )
-        .MapRoute( "~/help/{action}", new { controller = "Help" } );
+        .MapRoute( "~/help/{action}", new { controller = "Help" } )
+        .MapRoute( "~/help-feedback/{action}", new { controller = "Feedback" } );
     }
 
   }
