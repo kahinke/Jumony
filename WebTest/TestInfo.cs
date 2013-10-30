@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace WebTest
 {
-  public class TestReport
+  public class TestInfo
   {
 
-
+    public string Name
+    {
+      get;
+      set;
+    }
 
   }
 }

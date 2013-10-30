@@ -8,5 +8,12 @@ namespace WebTest
 {
   public class TestAssertFailedException : Exception
   {
+
+    public TestAssertFailedException( string message )
+      : base( message )
+    {
+
+    }
+
   }
 }
