@@ -14,6 +14,10 @@ namespace WebTest
 
       var instance = Activator.CreateInstance( testClass ) as TestClass;
 
+
+      var testMethods = 
+
+
       instance.Initialize();
 
 

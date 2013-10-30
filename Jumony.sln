@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.20827.3
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ivony.Core", "Ivony.Core\Ivony.Core.csproj", "{BF0B37E7-2D93-4A3D-AD6D-0B51B66F5B21}"
 EndProject
@@ -179,6 +179,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITest", "APITest\APITest.csproj", "{B26BA503-8721-4547-BCB7-E373C73AEB37}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ivony.Html.Xml", "Ivony.Html.Xml\Ivony.Html.Xml.csproj", "{E54EE965-72D2-400B-8410-73BEB509060A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTest", "WebTest\WebTest.csproj", "{844D3911-7F1C-40DC-BC7E-069E4B92C82D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -483,6 +485,16 @@ Global
 		{E54EE965-72D2-400B-8410-73BEB509060A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E54EE965-72D2-400B-8410-73BEB509060A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E54EE965-72D2-400B-8410-73BEB509060A}.Release|x86.ActiveCfg = Release|Any CPU
+		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -509,5 +521,6 @@ Global
 		{D4895FC7-B7DA-47D4-B46A-259C8E38C1FC} = {5819B631-AB5E-437C-AD43-D53F8A38086B}
 		{9F59712A-2689-4C78-A956-33DDD11E481F} = {5819B631-AB5E-437C-AD43-D53F8A38086B}
 		{B26BA503-8721-4547-BCB7-E373C73AEB37} = {5819B631-AB5E-437C-AD43-D53F8A38086B}
+		{844D3911-7F1C-40DC-BC7E-069E4B92C82D} = {5819B631-AB5E-437C-AD43-D53F8A38086B}
 	EndGlobalSection
 EndGlobal
