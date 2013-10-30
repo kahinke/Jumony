@@ -71,9 +71,8 @@ namespace WebTest
 
     private Action<object> CreateInvoker( TestClass instance, Type instanceType, MethodInfo method )
     {
-      var instanceVariable = Expression.Convert( Expression.Variable( typeof( object ), "instance" ), instanceType );
-
-      var expression = Expression.Lambda<Action<object>>( Expression.Call( instanceVariable, method ), Expression.Parameter( typeof( object ), "instance" ) );
+      var instanceParameter = Expression.Parameter( typeof( object ), "obj" );
+      var expression = Expression.Lambda<Action<object>>( Expression.Call( Expression.Convert( instanceParameter, instanceType ), method ), instanceParameter );
 
       return expression.Compile();
     }

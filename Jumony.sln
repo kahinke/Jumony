@@ -182,6 +182,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ivony.Html.Xml", "Ivony.Htm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTest", "WebTest\WebTest.csproj", "{844D3911-7F1C-40DC-BC7E-069E4B92C82D}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Test", "http://localhost:22578", "{F677ED19-23BF-4033-9694-0A4A98C26737}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{844d3911-7f1c-40dc-bc7e-069e4b92c82d}|WebTest.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_22578"
+		Debug.AspNetCompiler.PhysicalPath = "WebSite\Test\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_22578\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_22578"
+		Release.AspNetCompiler.PhysicalPath = "WebSite\Test\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_22578\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "WebSite\Test\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -495,6 +518,16 @@ Global
 		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{844D3911-7F1C-40DC-BC7E-069E4B92C82D}.Release|x86.ActiveCfg = Release|Any CPU
+		{F677ED19-23BF-4033-9694-0A4A98C26737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F677ED19-23BF-4033-9694-0A4A98C26737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F677ED19-23BF-4033-9694-0A4A98C26737}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F677ED19-23BF-4033-9694-0A4A98C26737}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F677ED19-23BF-4033-9694-0A4A98C26737}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F677ED19-23BF-4033-9694-0A4A98C26737}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F677ED19-23BF-4033-9694-0A4A98C26737}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F677ED19-23BF-4033-9694-0A4A98C26737}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F677ED19-23BF-4033-9694-0A4A98C26737}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F677ED19-23BF-4033-9694-0A4A98C26737}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -522,5 +555,6 @@ Global
 		{9F59712A-2689-4C78-A956-33DDD11E481F} = {5819B631-AB5E-437C-AD43-D53F8A38086B}
 		{B26BA503-8721-4547-BCB7-E373C73AEB37} = {5819B631-AB5E-437C-AD43-D53F8A38086B}
 		{844D3911-7F1C-40DC-BC7E-069E4B92C82D} = {5819B631-AB5E-437C-AD43-D53F8A38086B}
+		{F677ED19-23BF-4033-9694-0A4A98C26737} = {5819B631-AB5E-437C-AD43-D53F8A38086B}
 	EndGlobalSection
 EndGlobal
