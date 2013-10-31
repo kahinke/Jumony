@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace WebTest
 {
-  public class TestAssertFailedException : Exception
+  internal class TestAssertFailureException : Exception
   {
 
-    public TestAssertFailedException( string message )
+    internal TestAssertFailureException( string message )
       : base( message )
     {
 

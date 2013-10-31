@@ -6,11 +6,50 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Compilation;
 
 namespace WebTest
 {
   public class TestManager
   {
+
+
+    private static readonly object _sync = new object();
+
+    private static Type[] _testClasses;
+
+
+    public static Type[] FindTestClasses()
+    {
+      lock ( _sync )
+      {
+
+        if ( _testClasses == null )
+        {
+          _testClasses = BuildManager.GetReferencedAssemblies().Cast<Assembly>().AsParallel()
+            .SelectMany( assembly => assembly.GetTypes() )
+            .Where( type => type.IsSubclassOf( typeof( TestClass ) ) )
+            .ToArray();
+        }
+
+        return _testClasses;
+      }
+    }
+
+
+    public TestResult[] RunTest( Type type )
+    {
+      if ( type == null )
+        throw new ArgumentNullException( "type" );
+
+      if ( !type.IsSubclassOf( typeof( TestClass ) ) )
+        throw new InvalidOperationException();
+
+      return RunTest( Activator.CreateInstance( type ) as TestClass );
+
+    }
+
+
 
     public TestResult[] RunTest( TestClass instance )
     {
@@ -57,7 +96,7 @@ namespace WebTest
 
       }
 
-      catch ( TestAssertFailedException exception )
+      catch ( TestAssertFailureException exception )
       {
         return Failure( info, exception );
       }
@@ -83,7 +122,7 @@ namespace WebTest
       return new TestResultSuccess( info, duration );
     }
 
-    private TestResult Failure( TestInfo info, TestAssertFailedException exception )
+    private TestResult Failure( TestInfo info, TestAssertFailureException exception )
     {
       return new TestResultFailure( info, exception );
     }
@@ -98,6 +137,8 @@ namespace WebTest
     {
       return testClass.GetMethods( BindingFlags.Public | BindingFlags.Instance )
         .Where( m => !m.GetParameters().Any() )
+        .Where( m => m.DeclaringType != typeof( object ) )
+        .Where( m => m.DeclaringType != typeof( TestClass ) )
         .ToArray();
     }
 

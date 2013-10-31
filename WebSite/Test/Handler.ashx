@@ -4,23 +4,9 @@ using System;
 using System.Web;
 using WebTest;
 
-public class Handler : IHttpHandler
+public class Handler : TestHandler
 {
 
-  public void ProcessRequest( HttpContext context )
-  {
 
-    var manager = new TestManager();
-    var results = manager.RunTest( new MyTest() );
-
-  }
-
-  public bool IsReusable
-  {
-    get
-    {
-      return false;
-    }
-  }
 
 }
