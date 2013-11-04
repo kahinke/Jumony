@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using Ivony.Fluent;
 using Ivony.Html.Parser.ContentModels;
+using Ivony.Html.Parser;
 
-namespace Ivony.Html.Parser
+namespace Ivony.Html
 {
 
   /// <summary>
@@ -121,7 +122,6 @@ namespace Ivony.Html.Parser
         fragment.ContentFragment = new HtmlContentFragment( Reader, 0, Reader.HtmlText.Length );
       }
     }
-
 
   }
 }
